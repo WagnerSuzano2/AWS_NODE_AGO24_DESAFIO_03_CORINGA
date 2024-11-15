@@ -1,0 +1,84 @@
+{
+  "name": "aws_node_ago24_desafio_02_coringa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "migration:create:dev": "cross-env NODE_ENV=development ts-node ./node_modules/typeorm/cli.js migration:create --dataSource ./src/db/data-source.ts ./src/db/migration/default",
+    "migration:generate:dev": "cross-env NODE_ENV=development ts-node ./node_modules/typeorm/cli.js -d ./src/db/data-source.ts migration:generate ./src/db/migration/default",
+    "migration:run:dev": "cross-env NODE_ENV=development ts-node ./node_modules/typeorm/cli.js -d ./src/db/data-source.ts migration:run",
+    
+    "migration:create:prod": "cross-env NODE_ENV=production node ./node_modules/typeorm/cli.js migration:create --dataSource ./dist/db/data-source.js ./dist/db/migration/default",
+    "migration:generate:prod": "cross-env NODE_ENV=production node ./node_modules/typeorm/cli.js migration:generate --dataSource ./dist/db/data-source.js ./dist/db/migration/default",
+    "migration:run:prod": "cross-env NODE_ENV=production node ./node_modules/typeorm/cli.js migration:run --dataSource ./dist/db/data-source.js",
+    "start": "node dist/server.js",
+    "typeorm": "node ./node_modules/typeorm/cli.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Bernardo Silveira <bernardosdev@gmail.com>, Maria Carolina Gonçalves da Silva <goncalves.macarolina@gmail.com>, Ricardo Amorim Pini de Almeida <ricardo.contato14@outlook.com>, Saulo Adones Gabriel Guimaraes da Silveira <sauloadonesg@gmail.com>, Wagner Suzano Urivi <wagnersuzano2@gmail.com>",
+  "contributors": [
+    {
+      "name": "Hyury Freitas Gomes",
+      "email": "hyuryrs12@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bernardosds/AWS_NODE_AGO24_DESAFIO_02_CORINGA"
+  },
+  "license": "ISC",
+  "description": "API for Car Rental Management: This API facilitates the management of car rentals. It allows for user management, customer registration, control of available cars for rent, and the creation and tracking of rental orders.",
+  "dependencies": {
+    "@types/yamljs": "^0.2.34",
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.3",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.2.2",
+    "swagger-ui-dist": "^5.18.2",
+    "swagger-ui-express": "^5.0.1",
+    "typeorm": "^0.3.20",
+    "typeorm-ts-node-commonjs": "^0.3.20",
+    "uuid": "^10.0.0",
+    "validator": "^13.12.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.13",
+    "@types/joi": "^17.2.2",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.7.4",
+    "@types/swagger-ui-express": "^4.1.7",
+    "@types/uuid": "^10.0.0",
+    "@types/validator": "^13.12.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.10.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.8.1"
+  },
+  "overrides": {
+    "cookie": "^0.7.0"
+  }
+}
